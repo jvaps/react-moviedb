@@ -5,27 +5,43 @@ import { useParams } from "react-router-dom";
 const MovieDetail = () => {
   const { getMovieById, imageUrl } = useContext(AuthContext);
   const [movie, setMovie] = useState('');
+  const [genreList] = useState([])
   const {id} = useParams()
   const getMovieDetail = () => {
     getMovieById(id).then((data) => {
-        console.log('movieId :>> ', id);
-        console.log('data :>> ', data);
-        console.log('movie :>> ', movie);
+        data.genres.map((e) => {
+          return genreList.push(e.name);
+        })
         setMovie(data)
     });
 };
-const { title, genre, poster_path, overview, vote_average, release_date } = movie
+console.log('genresList :>> ', genreList)
+const { title, poster_path, overview, vote_average, release_date } = movie
   useEffect(() => {
     getMovieDetail();
-  }, []);
+    ;
+
+  }, [genreList]);
     return (
         <div className="movie-detail">
-            <div>{title}</div>
-            <div>{genre}</div>
-            <div>{imageUrl + poster_path}</div>
-            <div>{overview}</div>
-            <div>{vote_average}</div>
+            <h2>{title}</h2>
             <div>{release_date}</div>
+            <div className="genres">
+            {
+              genreList.map((e) => (
+                <div key={e}>{e}</div>
+              ))
+            }
+            </div>
+            <img src={imageUrl + poster_path}/>
+            <div>
+            <h5>Sinopse</h5>
+            <p>{overview}</p>
+            </div>
+            <div>
+              {vote_average}
+              <p>Avaliação dos usuários</p>
+            </div>
         </div>
      );
 }

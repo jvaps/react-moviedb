@@ -15,8 +15,6 @@ const Movie = () => {
   const getMovies = (page) => {
     if (page) {
       getMovieList(page).then((data) => {
-        console.log("page do caralho :>> ", page);
-        console.log("page do caralho 2:>> ", data);
         setPage(page);
         setList(data);
       });
@@ -43,15 +41,15 @@ const Movie = () => {
 
   useEffect(() => {
       getGenres()
-    filterGenre.length < 0 ? getMovies() : getMovieGenre(filterGenre);
+    filterGenre.length > 0 ? getMovies(page) : getMovieGenre(filterGenre);
 
   }, [page]);
 
   return (
     <div className="movie">
       <Menu>
+      <h2>Filtre por:</h2>
         <div className="filter">
-          <h6>Filtre por:</h6>
           {genres.map((e) => (
         <Filter key={e.id} params={e.name} onClick={() => getMovieGenre(e.id)}>
             

@@ -11,15 +11,19 @@ const MovieList = ({ movieList }) => {
     setMovieId(id);
     navigate(`details/${id}`);
   };
+  function formatDate (input) {
+  let datePart = input.match(/\d+/g),
+  year = datePart[0].substring(2),
+  month = datePart[1], day = datePart[2];
+  return day+'/'+month+'/'+year;
+}
   return (
     <div className="movie-list">
       {movieList.map((e) => (
-        <div key={e.id} onClick={() => clickMovie(e.id)}>
-          <div className="title">{e.title}</div>
-          <div className="image">
-            <img src={e.image} alt={e.title}></img>
-          </div>
-          <div className="date">{e.date}</div>
+        <div key={e.id} onClick={() => clickMovie(e.id)} className="movie-list-item">
+            <img className="image"src={e.image} alt={e.title}></img>
+          <p className="title">{e.title}</p>
+          <p className="date">{formatDate(e.date)}</p>
         </div>
       ))}
     </div>

@@ -1,4 +1,15 @@
+.menu {
+    display: grid
+}
+
 .sub-menu {
-    background-color: #2D0C5E
-    ;
+    background-color: #2D0C5E;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 0.1fr 0.5fr;
+    text-align: center;
+}
+
+.sub-menu h2 {
+    color: white;
 }

@@ -7,9 +7,9 @@ const Pagination = ({previousPage, nextPage, selectPage, value}) => {
             <button className="page-button" onClick={previousPage}>
                 {'<'} Voltar página
             </button>
-                <input type="number" placeholder="Escolha uma página" value={value} onChange={selectPage} onSubmit={selectPage} onBlur={selectPage} />
+                <input className="input" type="number" placeholder="Escolha uma página" value={value} onChange={selectPage} onSubmit={selectPage} onBlur={selectPage} />
             <button className="page-button" onClick={nextPage}>
-                {'>'} Próxima página
+                 Próxima página {'>'}
             </button>
         </div>
      );

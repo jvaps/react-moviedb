@@ -1,7 +1,9 @@
+import './Header.css'
+import TmbdbSvg from '../../assets/tmbdb-svg.jsx'
 const Header = () => {
     return ( 
         <header className="header">
-            <h6>TMDB</h6>
+            <TmbdbSvg/>
         </header>
      );
 }

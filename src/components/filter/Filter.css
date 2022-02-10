@@ -1,0 +1,11 @@
+.filter {
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter-item {
+    margin: 2px;
+}

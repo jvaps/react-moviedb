@@ -1,3 +1,14 @@
 .header {
     background-color: #5C16C5;
+    padding: 12px;
+    text-align: center;
+}
+
+.header-image {
+    height: 24.03400421142578px;
+    width: 184.74327087402344px;
+    left: 0px;
+    top: 0px;
+    border-radius: 0px;
+
 }
